@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Rotating Image Gallery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom 3D rotation styles */
+    .gallery {
+      perspective: 1000px;
+    }
+    .gallery-inner {
+      transform-style: preserve-3d;
+      animation: rotate 10s infinite linear;
+    }
+    @keyframes rotate {
+      from {
+        transform: rotateY(0deg);
+      }
+      to {
+        transform: rotateY(360deg);
+      }
+    }
+    .gallery-item {
+      transform-style: preserve-3d;
+      position: absolute;
+      transform-origin: center;
+    }
+    .gallery-item:nth-child(1) {
+      transform: rotateY(0deg) translateZ(300px);
+    }
+    .gallery-item:nth-child(2) {
+      transform: rotateY(120deg) translateZ(300px);
+    }
+    .gallery-item:nth-child(3) {
+      transform: rotateY(240deg) translateZ(300px);
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-black">
+  <div class="gallery w-72 h-72 relative">
+    <div class="gallery-inner w-full h-full relative">
+      <div class="gallery-item w-full h-full">
+        <img src="nav2.jpeg" alt="Image 1" class="w-full h-full object-cover">
+      </div>
+      <div class="gallery-item w-full h-full">
+        <img src="nav2.jpeg" alt="Image 2" class="w-full h-full object-cover">
+      </div>
+      <div class="gallery-item w-full h-full">
+        <img src="navbarimages.jpeg" alt="Image 3" class="w-full h-full object-cover">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
